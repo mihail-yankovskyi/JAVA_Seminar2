@@ -1,14 +1,12 @@
 package model;
 
-public class Professor {
-	//1. variables
+public class Student {
 	private long pID;
 	private String name;
 	private String surname;
-	private degree profDegree;
 	
-	private static long counter = 0;
-	//2. set and get
+	private static long counter = 1000;
+	
 	public long getpID() {
 		return pID;
 	}
@@ -35,39 +33,22 @@ public class Professor {
 		else
 			this.surname = "Undefinied";
 	}
-	public degree getProfDegree() {
-		return profDegree;
-	}
-	public void setProfDegree(degree profDegree) {
-		if(profDegree != null)
-			this.profDegree = profDegree;
-		else
-			this.profDegree = degree.other;
-	}
-		
 	
-	//3. constructors
-	public Professor() {
+	
+	public Student() {
 		setpID();
-		setName("John");
-		setSurname("Big");
-		setProfDegree(degree.other);
+		setName("Lara");
+		setSurname("Bernardes");
 	}
 	
-	public Professor(String name, String surname, degree profDegree) {
+	
+	public Student(String name, String surname) {
 		setpID();
 		setName(name);
 		setSurname(surname);
-		setProfDegree(profDegree);
 	}
-
 	
-
-	//4. toString
-	@Override
-	public String toString()
-	{
-		return pID + ": " + name + " " + surname + "(" + profDegree + ")";
+	public String toString() {
+		return pID + ": " + name + " " + surname;
 	}
-	//5. other functions
 }
