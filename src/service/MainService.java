@@ -135,6 +135,18 @@ public class MainService {
 		}
 	}
 	
+	public static int howManyProfessorsHavePHD() {
+		int howMany = 0;
+		
+		for(Professor tempPr: allProfessors) {
+			if(tempPr.getProfDegree().equals(degree.php)) {
+				howMany++;
+			}
+		}
+		
+		return howMany;
+	}
+	
 	
 	
 	//TODO
