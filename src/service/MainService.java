@@ -100,5 +100,46 @@ public class MainService {
 		};
 		return sum/howMany;
 	}
+	
+	public static int calculateHowManyCoursesbyProfessor(Professor inputProfessor) throws Exception {
+		if(inputProfessor == null) throw new Exception("Problems with input");
+		
+		int howMany = 0;
+		
+		
+		for(Course tempCr : allCourses) {
+			if(tempCr.getProfessor().equals(inputProfessor)) {
+				howMany++;
+			}
+		}
+		
+		return howMany;
+	}
+	
+	public static void sortStudents() throws Exception {
+		
+		
+		for(int i = 0; i < allStudents.size(); i++) {
+			for(int j = 0; j < allStudents.size(); j++) {
+				
+				Student tempI = allStudents.get(i);
+				Student tempJ = allStudents.get(j);
+				if(calculateAVGForStudent(tempJ) < calculateAVGForStudent(tempI)) {
+					Student temp  =  allStudents.get(i);
+					allStudents.set(i, allStudents.get(j));
+					allStudents.set(j, temp);
+				}
+				
+				
+			}
+		}
+	}
+	
+	
+	
+	//TODO
+	//calculates how many professors have phd as degree
+	//calculates how many grades are smaller than 4 in specific course
+	//calculates how many CP professor need to lead
 
 }
