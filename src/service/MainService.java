@@ -36,9 +36,9 @@ public class MainService {
 		
 		Student st1 = new Student();//Lara Bernardes student
 		allStudents.add(st1);
-		Student st2 = new Student("Viktors", "Kokin");
+		Student st2 = new Student("Viktors", "Kokin", "123456-09806");
 		allStudents.add(st2);
-		Student st3 = new Student("Davyd", "Akimov");
+		Student st3 = new Student("Davyd", "Akimov", "121298-67934");
 		allStudents.add(st3);
 		
 		for(Student tempSt: allStudents) {
