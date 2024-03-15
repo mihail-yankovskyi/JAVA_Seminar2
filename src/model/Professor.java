@@ -1,10 +1,9 @@
 package model;
 
-public class Professor {
+public class Professor extends Person{
 	//1. variables
 	private long pID;
-	private String name;
-	private String surname;
+	
 	private degree profDegree;
 	
 	private static long counter = 0;
@@ -16,25 +15,7 @@ public class Professor {
 		this.pID = counter;
 		counter++;
 	}
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		if(name != null  && name.matches("[A-Z]{1}[a-z]{1,20}"))
-			this.name = name;
-		else
-			this.name = "Undefinied";
-	}
-	public String getSurname() {
-		return surname;
-	}
-	public void setSurname(String surname) {
-		if(surname != null && surname.matches("[A-Z]{1}[a-z]{1,20}"))
-			this.surname = surname;
-		else
-			this.surname = "Undefinied";
-	}
+	
 	public degree getProfDegree() {
 		return profDegree;
 	}
@@ -48,26 +29,24 @@ public class Professor {
 	
 	//3. constructors
 	public Professor() {
+		super(); //Person() constructor will be called
 		setpID();
-		setName("John");
-		setSurname("Big");
 		setProfDegree(degree.other);
 	}
 	
-	public Professor(String name, String surname, degree profDegree) {
+	public Professor(String name, String surname, String personCode, degree profDegree) {
+		super(name, surname, personCode);
 		setpID();
-		setName(name);
-		setSurname(surname);
 		setProfDegree(profDegree);
 	}
-
 	
 
 	//4. toString
 	@Override
 	public String toString()
 	{
-		return pID + ": " + name + " " + surname + "(" + profDegree + ")";
+		return pID + ": " + super.toString() + " (" + profDegree + ")";
 	}
 	//5. other functions
+
 }

@@ -1,6 +1,6 @@
 package model;
 
 public enum degree {
-	bsc, mg, php, other
+	first_level, bc, mg, phd, other
 
 }
