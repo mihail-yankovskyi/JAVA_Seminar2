@@ -153,5 +153,62 @@ public class MainService {
 	//calculates how many professors have phd as degree
 	//calculates how many grades are smaller than 4 in specific course
 	//calculates how many CP professor need to lead
-
+	
+	public static Student retreiveStudentByPersonCode(String inputPersonCode) throws Exception {
+		if(inputPersonCode == null) throw new Exception("Problems with input");
+		//1. iter tempSt ->Lara
+		//2. iter tempSt->Viktors
+		//3 iter tempSt -> Davyd
+		for(Student tempSt: allStudents) {
+			if(tempSt.getPersonCode().equals(inputPersonCode)) {
+				return tempSt;
+			}
+			
+		}
+		throw new Exception("Student is not found");
+	}
+	
+	
+	public static void createStudent(String inputName, String iputSurname, String inputPersonCode) throws Exception  {
+		if(inputName == null || iputSurname == null || inputPersonCode == null) throw new Exception("Problems with input");
+		for(Student tempSt: allStudents) {
+			if(tempSt.getPersonCode().equals(inputPersonCode)) {
+				throw new Exception("Student is already in the system");
+			}
+		Student student = new Student(inputName, iputSurname, inputPersonCode);
+		allStudents.add(student);
+		}
+	}
+	
+	public static void updateStudentByPersonCode(String name, String surname, String personCode) throws Exception {
+		if(name == null || surname == null || personCode == null) throw new Exception("Problems with input");
+		for(Student tempSt: allStudents) {
+			if(tempSt.getPersonCode().equals(personCode)) {
+				tempSt.setName(surname);
+				tempSt.setSurname(surname);
+				return;
+			}
+			throw new Exception("Student is not found");
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
